@@ -51,10 +51,10 @@ string BuildPlayerNamesNotificationText() {
         }
     }
 
-    string botsText = botPlayers.Length == 0 ? "No bots detected" : "Bots (" + botPlayers.Length + "): " + string::Join(botPlayers, ", ");
+    string botsText = botPlayers.Length == 0 ? "" : "Bots (" + botPlayers.Length + "): " + string::Join(botPlayers, ", ") + "\n\n";
     string playersText = "Players (" + realPlayers.Length + "): " + string::Join(realPlayers, ", ");
 
-    return botsText + "\n\n" + playersText;
+    return botsText + playersText;
 }
 
 bool IsMatchStarting() {
