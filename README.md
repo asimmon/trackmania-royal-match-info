@@ -1,15 +1,19 @@
 # Royal match info
 
-**Royal match info** is an [Openplanet](https://openplanet.dev/) plugin for [Trackmania 2020](https://www.trackmania.com/):
+**Royal match info** is an [Openplanet](https://openplanet.dev/) plugin for [Trackmania 2020](https://www.trackmania.com/).
+When playing a Royal match, it displays a window where you can:
 
-* Displays the **map names** when you join a Royal match
-* Displays the **player and bot names** when a Royal match starts
-* Adds a menu to **display or copy** the information listed above at any time during a Royal match
+* See the **map names**
+* Send the map names to the **global or team chat**
+* Copy the map names to the **clipboard**
+* Displays the **player and bot names**
+
+Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
 ## Screenshots
 
-![royalmatchinfo1](https://user-images.githubusercontent.com/14242083/189541262-435df402-6ac6-4e7f-974d-b907bbee2b8b.png)
-![royalmatchinfo2](https://user-images.githubusercontent.com/14242083/189541258-801208e6-4ffb-4f3d-bea3-a8865934092a.png)
+![royalmatchinfo1](https://user-images.githubusercontent.com/14242083/211225865-062d08a9-783c-438a-8fe2-0cb810313207.png)
+![royalmatchinfo2](https://user-images.githubusercontent.com/14242083/211225877-e2deaba8-bc41-458e-975d-059db364a8ca.png)
 
 ## Special thanks
 
