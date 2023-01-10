@@ -7,6 +7,7 @@ string g_pluginName = "\\$fd0" + Icons::Trophy + "\\$z Royal match info";
 bool g_isWindowOpened = true;
 bool g_hasChatPermission = true;
 bool g_showPlayers = false;
+uint64 g_lastMsgSentAt = 0;
 
 void Main() {
     NadeoServices::AddAudience("NadeoClubServices");
@@ -56,17 +57,18 @@ void RenderInterface() {
         return;
 
     auto playgroundInterface = cast<CGamePlaygroundInterface>(playground.Interface);
-    auto canUseChat = g_hasChatPermission && playgroundInterface !is null;
+    auto timeSinceLastMsgSent = Time::get_Now() - g_lastMsgSentAt;
+    auto canUseChat = g_hasChatPermission && playgroundInterface !is null && timeSinceLastMsgSent > 5000;
 
     // Begin window
     UI::SetNextWindowSize(400, 100);
-    UI::Begin(g_pluginName, UI::WindowFlags::NoCollapse | UI::WindowFlags::AlwaysAutoResize);
+    UI::Begin(g_pluginName, g_isWindowOpened, UI::WindowFlags::NoCollapse | UI::WindowFlags::AlwaysAutoResize);
 
     // Display maps
     UI::TextWrapped(GetMapNamesForUI(currentServer));
 
     // Copy map names to clipboard
-    if (GrayButton("Copy")) {
+    if (GrayButton(Icons::Clipboard + " Copy")) {
         IO::SetClipboard(GetMapNamesForClipboard(currentServer));
         Notify("Map names copied to clipboard", 3000);
     }
@@ -77,14 +79,16 @@ void RenderInterface() {
     }
 
     UI::SameLine();
-    if (BlueButton((canUseChat ? "" : Icons::Lock + " ") + "Send to chat")) {
+    if (BlueButton((canUseChat ? Icons::Bullhorn : Icons::Lock) + " Send to chat")) {
         playgroundInterface.ChatEntry = GetMapNamesForChat(currentServer);
+        g_lastMsgSentAt = Time::get_Now();
     }
 
     // Send map names to team chat
     UI::SameLine();
     if (BlueButton((canUseChat ? Icons::UserSecret : Icons::Lock) + " Send to team")) {
         playgroundInterface.ChatEntry = "/t " + GetMapNamesForChat(currentServer);
+        g_lastMsgSentAt = Time::get_Now();
     }
 
     if (!canUseChat) {
