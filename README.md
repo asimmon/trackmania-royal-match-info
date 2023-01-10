@@ -12,9 +12,10 @@ Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
 ## Screenshots
 
-![royalmatchinfo1](https://user-images.githubusercontent.com/14242083/211225865-062d08a9-783c-438a-8fe2-0cb810313207.png)
-![royalmatchinfo2](https://user-images.githubusercontent.com/14242083/211225877-e2deaba8-bc41-458e-975d-059db364a8ca.png)
+![screen1](https://user-images.githubusercontent.com/14242083/211577652-3925056d-cbcb-41bb-9afd-55673ff72918.png)
+![screen2](https://user-images.githubusercontent.com/14242083/211577674-541e0608-ae4f-4332-aa95-c4d9a14f29e6.png)
+
 
 ## Special thanks
 
-Thanks to [jeFFeSS and his Royal Match Monitor plugin](https://openplanet.dev/plugin/royalmatchmonitor). I would not have been able to create *Royal match info* without this, as I had no experience with AngelScript, Openplanet API and Trackmania API.
+Credit to [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) and [Dog](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) for creating the logic that lists the Royal maps in the right order, and the logic that differentiates human players and ghosts.
