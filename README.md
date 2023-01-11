@@ -18,4 +18,4 @@ Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
 ## Special thanks
 
-Credit to [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) and [Dog..](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) for creating the logic that lists the Royal maps in the right order, the logic that differentiates human players from ghosts and inspiring this plugin in general.
+Credit to [Dog..](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) and [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) for creating the logic that lists the Royal maps in the right order, the logic that differentiates human players from ghosts and inspiring this plugin in general.
