@@ -6,7 +6,7 @@ When playing a Royal match, it displays a window where you can:
 * See the **map names**
 * Send the map names to the **global or team chat**
 * Copy the map names to the **clipboard**
-* Displays the **player and bot names**
+* See the **player and bot names**
 
 Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
@@ -18,4 +18,4 @@ Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
 ## Special thanks
 
-Credit to [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) and [Dog](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) for creating the logic that lists the Royal maps in the right order, and the logic that differentiates human players and ghosts.
+Credit to [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) and [Dog..](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) for creating the logic that lists the Royal maps in the right order, the logic that differentiates human players and ghosts and inspiring this plugin in general.
