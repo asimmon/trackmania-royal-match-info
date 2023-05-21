@@ -24,6 +24,45 @@ void RenderMenu() {
 	}
 }
 
+// https://github.com/codecat/tm-better-chat/blob/604ea0dc4a340d21a43762cf628b43e4ff953921/src/UI/Tooltip.as
+void SetPreviousTooltip(const string &in text) {
+    if (UI::IsItemHovered()) {
+        UI::BeginTooltip();
+        UI::Text(text);
+        UI::EndTooltip();
+    }
+}
+
+// https://github.com/codecat/tm-better-chat/blob/604ea0dc4a340d21a43762cf628b43e4ff953921/src/Elements/Link.as
+void Link(const string &in url, const string &in description) {
+    auto descriptionSize = Draw::MeasureString(description);
+
+    if (UI::InvisibleButton(url, descriptionSize)) {
+        OpenBrowserURL(url);
+    }
+
+    vec4 rect = UI::GetItemRect();
+    auto dl = UI::GetWindowDrawList();
+
+    string text;
+    vec4 color;
+
+    if (UI::IsItemHovered()) {
+        text = "\\$<\\$fff" + description + "\\$>";
+        color = UI::HSV(0.0f, 0.0f, 1.0f);
+    } else {
+        text = "\\$<\\$888" + description + "\\$>";
+        color = UI::HSV(0.0f, 0.0f, 0.533f);
+    }
+
+    dl.AddText(vec2(rect.x, rect.y), vec4(1, 1, 1, 1), text);
+
+    float bottomY = rect.y + descriptionSize.y;
+    dl.AddLine(vec2(rect.x, bottomY), vec2(rect.x + rect.z, bottomY), color);
+
+    SetPreviousTooltip(url);
+}
+
 void RenderInterface() {
     if (!g_isWindowOpened || !NadeoServices::IsAuthenticated("NadeoClubServices"))
         return;
@@ -128,6 +167,21 @@ void RenderInterface() {
         }
     }
 
+    // Useful information and links
+    UI::PushStyleColor(UI::Col::Text, UI::HSV(0.0f, 0.0f, 0.533f));
+    UI::PushStyleColor(UI::Col::Separator, UI::HSV(0.0f, 0.0f, 0.2f));
+
+    UI::Separator();
+    UI::TextWrapped(Icons::GraduationCap + " Practice any of these maps in the \"Royal Training Maps\" club!");
+    
+    UI::PopStyleColor(2);
+
+    Link("https://discord.gg/GP8m2YjUZk", Icons::Discord + " Join The Royal Family discord and find teammates!");
+    
+    Link("https://www.trackmania.com/royal", Icons::Chrome + " Check the current map pool");
+    UI::SameLine();
+    Link("https://royalgraveyard.jeffs.rocks/", Icons::Hackaday + " and the retired maps!");
+
     // End window
     UI::End();
 }
@@ -138,7 +192,12 @@ string GetMapNamesForClipboard(CTrackManiaNetworkServerInfo@ server) { return Ge
 string GetMapNamesInternal(CTrackManiaNetworkServerInfo@ server, const string &in separator) {
     string[] mapNames;
 
-    for (uint i = 0; i < server.ChallengeNames.Length; i++) {
+    // Since console release and in SR qualifications only, "server.ChallengeNames" contains many extra maps
+    auto serverName = server.ServerName;
+    auto isSuperRoyal = serverName.Contains("Super royal") || serverName.Contains("SRoyal");
+    auto maxMapCount = isSuperRoyal ? Math::Min(5, server.ChallengeNames.Length) : server.ChallengeNames.Length;
+
+    for (uint i = 0; i < maxMapCount; i++) {
         mapNames.InsertLast(server.ChallengeNames[i]);
     }
 
@@ -152,8 +211,7 @@ void Notify(const string &in text, int duration) {
 bool BlueButton(const string &in text) { return UI::Button(text); }
 bool GrayButton(const string &in text) { return ColoredButton(text, 0.78f, 0.0f, 0.3f); }
 bool GreenButton(const string &in text) { return ColoredButton(text, 0.33f, 0.6f, 0.6f); }
-bool ColoredButton(const string &in text, float h, float s, float v)
-{
+bool ColoredButton(const string &in text, float h, float s, float v) {
     UI::PushStyleColor(UI::Col::Button, UI::HSV(h, s, v));
     UI::PushStyleColor(UI::Col::ButtonHovered, UI::HSV(h, s + 0.1f, v + 0.1f));
     UI::PushStyleColor(UI::Col::ButtonActive, UI::HSV(h, s + 0.2f, v + 0.2f));

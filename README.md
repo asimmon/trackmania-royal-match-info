@@ -12,10 +12,12 @@ Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
 ## Screenshots
 
-![screen1](https://user-images.githubusercontent.com/14242083/211577652-3925056d-cbcb-41bb-9afd-55673ff72918.png)
-![screen2](https://user-images.githubusercontent.com/14242083/211577674-541e0608-ae4f-4332-aa95-c4d9a14f29e6.png)
+![screen1](https://github.com/asimmon/trackmania-royal-match-info/assets/14242083/df5e7d94-87d1-4ecf-ab65-c8bac2a21990)
+![screen2](https://github.com/asimmon/trackmania-royal-match-info/assets/14242083/757a3c9e-6e98-49a8-b345-d7fa49c76b70)
 
 
 ## Special thanks
 
-Credit to [Dog..](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) and [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) for creating the logic that lists the Royal maps in the right order, the logic that differentiates human players from ghosts and inspiring this plugin in general.
+Credits to [Dog..](https://trackmania.io/#/player/961d1145-8c7b-48c3-9191-0d1d91e44a4a) and [jeFFeSS](https://trackmania.io/#/player/213b2359-62f2-499e-aa13-6b1392ee99d8) for creating the logic that lists the Royal maps in the right order, the logic that differentiates human players from ghosts and inspiring this plugin in general.
+
+Credits to [Miss](https://github.com/codecat) for the colored buttons and clickable links from [Better Chat](https://github.com/codecat/tm-better-chat/).
