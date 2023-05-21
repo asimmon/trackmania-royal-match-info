@@ -51,8 +51,8 @@ void Link(const string &in url, const string &in description) {
         text = "\\$<\\$fff" + description + "\\$>";
         color = UI::HSV(0.0f, 0.0f, 1.0f);
     } else {
-        text = "\\$<\\$777" + description + "\\$>";
-        color = UI::HSV(0.78f, 0.0f, 0.5f);
+        text = "\\$<\\$888" + description + "\\$>";
+        color = UI::HSV(0.0f, 0.0f, 0.533f);
     }
 
     dl.AddText(vec2(rect.x, rect.y), vec4(1, 1, 1, 1), text);
@@ -168,8 +168,8 @@ void RenderInterface() {
     }
 
     // Useful information and links
-    UI::PushStyleColor(UI::Col::Text, UI::HSV(0.78f, 0.0f, 0.5f));
-    UI::PushStyleColor(UI::Col::Separator, UI::HSV(0.78f, 0.0f, 0.2f));
+    UI::PushStyleColor(UI::Col::Text, UI::HSV(0.0f, 0.0f, 0.533f));
+    UI::PushStyleColor(UI::Col::Separator, UI::HSV(0.0f, 0.0f, 0.2f));
 
     UI::Separator();
     UI::TextWrapped(Icons::GraduationCap + " Practice any of these maps in the \"Royal Training Maps\" club!");
