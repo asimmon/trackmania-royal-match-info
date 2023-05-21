@@ -12,8 +12,8 @@ Use the menu item `Plugins > Royal match info` to enable or disable the window.
 
 ## Screenshots
 
-![screen1](https://user-images.githubusercontent.com/14242083/211577652-3925056d-cbcb-41bb-9afd-55673ff72918.png)
-![screen2](https://user-images.githubusercontent.com/14242083/211577674-541e0608-ae4f-4332-aa95-c4d9a14f29e6.png)
+![screen1](https://github.com/asimmon/trackmania-royal-match-info/assets/14242083/df5e7d94-87d1-4ecf-ab65-c8bac2a21990)
+![screen2](https://github.com/asimmon/trackmania-royal-match-info/assets/14242083/757a3c9e-6e98-49a8-b345-d7fa49c76b70)
 
 
 ## Special thanks
