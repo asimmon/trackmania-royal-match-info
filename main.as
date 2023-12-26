@@ -2,7 +2,7 @@
 // https://openplanet.dev/plugin/royalmatchmonitor
 
 // Global state
-string g_pluginName = "\\$fd0" + Icons::Trophy + "\\$z Royal match info";
+string g_pluginName = "\\$fd0" + Icons::Trophy + "\\$z Royal match info\\$888 by askaiser971\\$z";
 
 bool g_isWindowOpened = true;
 bool g_hasChatPermission = true;
@@ -148,7 +148,7 @@ void RenderInterface() {
         for (uint i = 0; i < network.PlayerInfos.Length; i++) {
             auto player = cast<CTrackManiaPlayerInfo>(network.PlayerInfos[i]);
 
-            if (player is null || IsSystemPlayer(player)) {
+            if (player is null || IsSystemPlayer(player, currentServer)) {
                 // ignored
             } else if (IsBotPlayer(player)) {
                 botPlayers.InsertLast(player.Name);
@@ -176,7 +176,7 @@ void RenderInterface() {
     
     UI::PopStyleColor(2);
 
-    Link("https://discord.gg/GP8m2YjUZk", Icons::Discord + " Join The Royal Family discord and find teammates!");
+    Link("https://dsc.gg/royal-family", Icons::Discord + " Join The Royal Family discord and find teammates!");
     
     Link("https://www.trackmania.com/royal", Icons::Chrome + " Check the current map pool");
     UI::SameLine();
@@ -226,9 +226,10 @@ bool IsRoyalServer(CTrackManiaNetworkServerInfo@ server) {
         && server.ChallengeNames.Length > 0;
 }
 
-bool IsSystemPlayer(CTrackManiaPlayerInfo@ player) {
+bool IsSystemPlayer(CTrackManiaPlayerInfo@ player, CTrackManiaNetworkServerInfo@ server) {
     // In normal royal, there's a non-real player named "Match: Official royal - match" that we must ignore
-    return player.Name.StartsWith("Match: ");
+    // Since a few weeks or months, there's also a non-real player with the same current server login name
+    return player.Name.StartsWith("Match: ") || player.Name == server.ServerLogin;
 }
 
 bool IsBotPlayer(CTrackManiaPlayerInfo@ player) {
