@@ -222,7 +222,7 @@ bool ColoredButton(const string &in text, float h, float s, float v) {
 
 bool IsRoyalServer(CTrackManiaNetworkServerInfo@ server) {
     return server.ServerLogin != ""
-        && server.ModeName == "TM_Royal_Online"
+        && (server.ModeName == "TM_Royal_Online" || server.ModeName == "TM_RoyalStars_Online")
         && server.ChallengeNames.Length > 0;
 }
 
